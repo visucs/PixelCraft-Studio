@@ -36,7 +36,7 @@ const socials = [
   { icon: DribbbleIcon, href: '#', label: 'Dribbble' },
 ];
 
-export default function Footer() {
+export default function Footer({ onLegal }) {
   return (
     <footer className="bg-[#030303] border-t border-white/[0.05] py-12 px-6">
       <div className="max-w-7xl mx-auto">
@@ -56,13 +56,23 @@ export default function Footer() {
           {/* Nav Links */}
           <div className="flex flex-wrap items-center justify-center gap-6">
             {navLinks.map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="text-[#86868B] hover:text-white text-sm font-medium transition-colors"
-              >
-                {link}
-              </a>
+              link === 'Privacy' || link === 'Terms' ? (
+                <button
+                  key={link}
+                  onClick={() => onLegal?.(link.toLowerCase())}
+                  className="text-[#86868B] hover:text-white text-sm font-medium transition-colors"
+                >
+                  {link}
+                </button>
+              ) : (
+                <a
+                  key={link}
+                  href="#"
+                  className="text-[#86868B] hover:text-white text-sm font-medium transition-colors"
+                >
+                  {link}
+                </a>
+              )
             ))}
           </div>
 

@@ -12,9 +12,20 @@ import FAQ from './components/FAQ';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import StartProject from './components/StartProject';
+import LegalPage from './components/LegalPage';
 
 export default function App() {
   const [projectOpen, setProjectOpen] = useState(false);
+  const [legalTab, setLegalTab] = useState(null); // null | 'privacy' | 'terms'
+
+  if (legalTab) {
+    return (
+      <LegalPage
+        defaultTab={legalTab}
+        onBack={() => { setLegalTab(null); window.scrollTo({ top: 0 }); }}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
@@ -29,9 +40,10 @@ export default function App() {
       <Pricing onStartProject={() => setProjectOpen(true)} />
       <FAQ />
       <CTA onStartProject={() => setProjectOpen(true)} />
-      <Footer />
+      <Footer onLegal={(tab) => setLegalTab(tab)} />
 
       <StartProject open={projectOpen} onClose={() => setProjectOpen(false)} />
     </div>
   );
 }
+
