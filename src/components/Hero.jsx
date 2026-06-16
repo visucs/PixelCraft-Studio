@@ -49,7 +49,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-white/10 bg-white/[0.04] text-sm text-[#86868B]"
+          className="inline-flex items-center gap-2 mb-6 sm:mb-8 px-4 py-2 rounded-full border border-white/10 bg-white/[0.04] text-xs sm:text-sm text-[#86868B]"
         >
           <span className="w-2 h-2 rounded-full bg-[#0071E3] animate-pulse" />
           Premium Web Design Studio
@@ -74,7 +74,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35 }}
-          className="text-[#86868B] text-[22px] font-light max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-[#86868B] text-lg sm:text-[22px] font-light max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed px-2 sm:px-0"
         >
           Premium web design & development for brands that refuse to be ordinary.
         </motion.p>
@@ -84,18 +84,18 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
           <button
             onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-primary text-base"
+            className="btn-primary text-base w-full sm:w-auto justify-center"
           >
             See Our Work
             <ArrowRight size={16} />
           </button>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-outline text-base"
+            className="btn-outline text-base w-full sm:w-auto justify-center"
           >
             Start a Project
           </button>
@@ -106,7 +106,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="mt-16 flex items-center justify-center gap-8 text-[#86868B]"
+          className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-[#86868B]"
         >
           <div className="flex items-center gap-2">
             <div className="flex -space-x-2">
@@ -122,12 +122,12 @@ export default function Hero() {
             </div>
             <span className="text-sm">150+ happy clients</span>
           </div>
-          <div className="h-4 w-px bg-white/10" />
+          <div className="hidden sm:block h-4 w-px bg-white/10" />
           <div className="flex items-center gap-1 text-sm">
             <span className="text-yellow-400">★★★★★</span>
             <span>5.0 rating</span>
           </div>
-          <div className="h-4 w-px bg-white/10" />
+          <div className="hidden sm:block h-4 w-px bg-white/10" />
           <div className="text-sm">7-day turnaround</div>
         </motion.div>
       </div>
