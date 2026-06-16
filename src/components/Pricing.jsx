@@ -165,39 +165,18 @@ function PricingCard({ plan, delay }) {
   return (
     <div
       ref={ref}
-      className="section-reveal relative rounded-2xl p-7 flex flex-col transition-all duration-300"
-      style={{
-        background: plan.featured ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.02)',
-        border: plan.featured
-          ? '1px solid rgba(255,255,255,0.18)'
-          : '1px solid rgba(255,255,255,0.07)',
-        boxShadow: plan.featured ? '0 0 0 1px rgba(255,255,255,0.06) inset' : 'none',
-      }}
-      onMouseEnter={(e) => {
-        if (!plan.featured) {
-          e.currentTarget.style.borderColor = 'rgba(255,255,255,0.13)';
-          e.currentTarget.style.background = 'rgba(255,255,255,0.035)';
-        }
-      }}
-      onMouseLeave={(e) => {
-        if (!plan.featured) {
-          e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)';
-          e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
-        }
-      }}
+      className={`section-reveal pricing-card relative p-7 flex flex-col ${plan.featured ? 'featured' : ''}`}
     >
-      {/* Savings badge — never shown (no subscription) */}
-
       {/* Top row: icon + price */}
       <div className="flex items-start justify-between mb-5">
         <div
           className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
           style={{
-            background: plan.featured ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            background: plan.featured ? 'rgba(0, 113, 227, 0.1)' : 'rgba(255,255,255,0.06)',
+            border: plan.featured ? '1px solid rgba(0, 113, 227, 0.2)' : '1px solid rgba(255,255,255,0.08)',
           }}
         >
-          <Icon size={20} className="text-white" strokeWidth={1.5} />
+          <Icon size={20} className={plan.featured ? "text-apple-blue-light" : "text-white"} strokeWidth={1.5} />
         </div>
 
         <div className="text-right">
@@ -205,7 +184,6 @@ function PricingCard({ plan, delay }) {
             <span className="text-white text-3xl font-black tracking-tight">{plan.price}</span>
             <span className="text-[#86868B] text-xs font-medium">/ Project</span>
           </div>
-
         </div>
       </div>
 
@@ -215,33 +193,7 @@ function PricingCard({ plan, delay }) {
 
       {/* CTA */}
       <button
-        className="w-full py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 mb-7"
-        style={
-          plan.featured
-            ? {
-                background: '#ffffff',
-                color: '#000000',
-              }
-            : {
-                background: 'rgba(255,255,255,0.06)',
-                color: '#ffffff',
-                border: '1px solid rgba(255,255,255,0.1)',
-              }
-        }
-        onMouseEnter={(e) => {
-          if (!plan.featured) {
-            e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-          } else {
-            e.currentTarget.style.opacity = '0.9';
-          }
-        }}
-        onMouseLeave={(e) => {
-          if (!plan.featured) {
-            e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
-          } else {
-            e.currentTarget.style.opacity = '1';
-          }
-        }}
+        className={`w-full py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 mb-7 transition-all duration-300 ${plan.featured ? 'bg-apple-blue hover:bg-blue-600 text-white' : 'bg-white/5 border border-white/10 text-white hover:bg-white/10'}`}
         onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
       >
         {plan.cta} <ArrowRight size={14} />
@@ -256,11 +208,11 @@ function PricingCard({ plan, delay }) {
               <div
                 className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5"
                 style={{
-                  background: plan.featured ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.06)',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: plan.featured ? 'rgba(0, 113, 227, 0.12)' : 'rgba(255,255,255,0.06)',
+                  border: plan.featured ? '1px solid rgba(0, 113, 227, 0.2)' : '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <Check size={11} className="text-white" strokeWidth={2.5} />
+                <Check size={11} className={plan.featured ? "text-apple-blue-light" : "text-white"} strokeWidth={2.5} />
               </div>
               <span className="text-[#86868B] text-[13px] leading-relaxed">{feature}</span>
             </li>
@@ -270,3 +222,4 @@ function PricingCard({ plan, delay }) {
     </div>
   );
 }
+
