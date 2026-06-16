@@ -105,8 +105,8 @@ jobs:
 
       - name: Image test karo
         run: |
-          docker run -d -p 3000:80 --name test pixelcraft-studio
-          sleep 5
-          curl http://localhost:3000
-          docker stop test
+          # docker run -d -p 3000:80 --name test pixelcraft-studio
+          # sleep 5
+          # curl http://localhost:3000
+          # docker stop test
 

@@ -23,9 +23,9 @@ const infoCards = [
   {
     icon: Phone,
     title: 'Phone',
-    value: '+91 70790 92440',
+    value: '+91 92949 79278',
     sub: 'Call us for immediate assistance',
-    href: 'tel:+917079092440',
+    href: 'tel:+919294979278',
   },
   {
     icon: Mail,
@@ -114,7 +114,7 @@ export default function ContactPage({ onBack }) {
       alert('Pehle naam aur message bharo!');
       return;
     }
-    const phone = '917079092440';
+    const phone = '919294979278';
     const text = encodeURIComponent(
       `Naam: ${form.firstName} ${form.lastName}\nEmail: ${form.email}\nService: ${form.service || 'Not specified'}\n\nMessage: ${form.message}`
     );
@@ -242,7 +242,7 @@ export default function ContactPage({ onBack }) {
                   <span className="text-white font-semibold">24 hours</span>.
                 </p>
                 <a
-                  href={`https://wa.me/917079092440?text=${whatsappMsg}`}
+                  href={`https://wa.me/919294979278?text=${whatsappMsg}`}
                   target="_blank" rel="noopener noreferrer"
                   className="mt-6 flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold"
                   style={{ background: '#25D366', color: '#fff' }}
@@ -324,13 +324,13 @@ export default function ContactPage({ onBack }) {
               <h3 className="text-white font-bold text-base mb-4">Quick Contact</h3>
               <div className="flex flex-col gap-3">
                 <a
-                  href="tel:+917079092440"
+                  href="tel:+919294979278"
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 hover:border-white/20 bg-white/5 border border-white/10 text-white/80"
                 >
                   <Phone size={15} className="text-[#0071E3]" />
                   <div>
                     <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Call Now</p>
-                    <p>+91 70790 92440</p>
+                    <p>+91 92949 79278</p>
                   </div>
                 </a>
                 <a
@@ -344,7 +344,7 @@ export default function ContactPage({ onBack }) {
                   </div>
                 </a>
                 <a
-                  href="https://wa.me/917079092440"
+                  href="https://wa.me/919294979278"
                   target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:opacity-90 bg-[#25D366] text-white"
                 >
@@ -410,7 +410,7 @@ export default function ContactPage({ onBack }) {
             Your vision deserves to be built beautifully. Contact us today and let's start planning your perfect web project.
           </p>
           <a
-            href="https://wa.me/917079092440?text=Hi%20PixelCraft%20Studio!%20I'd%20like%20to%20start%20a%20project."
+            href="https://wa.me/919294979278?text=Hi%20PixelCraft%20Studio!%20I'd%20like%20to%20start%20a%20project."
             target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90 active:scale-95"
             style={{ background: '#0071E3', color: '#fff' }}
