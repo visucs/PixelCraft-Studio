@@ -21,7 +21,7 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   ::-webkit-scrollbar {
@@ -45,13 +45,14 @@
 @layer components {
   .section-reveal {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(40px) translateZ(0);
+    will-change: transform, opacity;
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
 
   .section-reveal.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateZ(0);
   }
 
   .glass-card {
@@ -65,11 +66,13 @@
     background: #0A0A0A;
     border: 1px solid rgba(255, 255, 255, 0.06);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, box-shadow, border-color;
+    transform: translateZ(0);
   }
 
   .service-card:hover {
     border-color: rgba(0, 113, 227, 0.5);
-    transform: translateY(-4px) scale(1.01);
+    transform: translateY(-4px) scale(1.01) translateZ(0);
     box-shadow: 0 0 30px rgba(0, 113, 227, 0.15), 0 20px 40px rgba(0, 0, 0, 0.4);
   }
 

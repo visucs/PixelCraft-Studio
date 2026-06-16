@@ -36,7 +36,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-black text-white overflow-clip">
       <Navbar
         onStartProject={() => setProjectOpen(true)}
         onContact={() => setShowContact(true)}
