@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import { ArrowLeft, Phone, Mail, MapPin, Clock, MessageCircle, Send, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Phone, Mail, MessageCircle, Send, ArrowRight } from 'lucide-react';
 
-const InstagramIcon = () => (
-  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+const InstagramIcon = ({ size = 13, className = "" }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
   </svg>
 );
 
-const LinkedInIcon = () => (
-  <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+const LinkedInIcon = ({ size = 13, className = "" }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor">
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
     <rect x="2" y="9" width="4" height="12"/>
     <circle cx="4" cy="4" r="2"/>
@@ -22,9 +22,9 @@ const infoCards = [
   {
     icon: Phone,
     title: 'Phone',
-    value: '+91 93132 02075',
+    value: '+91 70790 92440',
     sub: 'Call us for immediate assistance',
-    href: 'tel:+919313202075',
+    href: 'tel:+917079092440',
   },
   {
     icon: Mail,
@@ -34,18 +34,18 @@ const infoCards = [
     href: 'mailto:hello@pixelcraftstudio.com',
   },
   {
-    icon: MapPin,
-    title: 'Studio Location',
-    value: 'Rajkot, Gujarat, India',
-    sub: 'Visit our studio for consultation',
-    href: 'https://maps.google.com/?q=Rajkot,Gujarat,India',
+    icon: InstagramIcon,
+    title: 'Instagram',
+    value: '@pixelcraftstudio',
+    sub: 'Follow us for updates',
+    href: 'https://instagram.com/pixelcraftstudio',
   },
   {
-    icon: Clock,
-    title: 'Working Hours',
-    value: 'Mon – Sat: 9AM – 7PM',
-    sub: 'Sunday by appointment',
-    href: null,
+    icon: LinkedInIcon,
+    title: 'LinkedIn',
+    value: 'PixelCraft Studio',
+    sub: 'Connect with our team',
+    href: 'https://linkedin.com/company/pixelcraftstudio',
   },
 ];
 
@@ -106,7 +106,7 @@ export default function ContactPage({ onBack }) {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0071E3] to-[#00C6FF] flex items-center justify-center">
               <span className="text-white font-black text-sm">P</span>
             </div>
-            <span className="text-white font-bold text-lg tracking-tight">PixelCraft Studio</span>
+            <span className="text-white font-bold text-lg tracking-tight">PixelCraft</span>
           </button>
           <button
             onClick={onBack}
@@ -295,14 +295,14 @@ export default function ContactPage({ onBack }) {
               <h3 className="text-white font-bold text-base mb-4">Quick Contact</h3>
               <div className="flex flex-col gap-3">
                 <a
-                  href="tel:+919313202075"
+                  href="tel:+917079092440"
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 hover:border-white/20"
                   style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.8)' }}
                 >
                   <Phone size={15} className="text-[#0071E3]" />
                   <div>
                     <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider">Call Now</p>
-                    <p>+91 93132 02075</p>
+                    <p>+91 70790 92440</p>
                   </div>
                 </a>
                 <a
@@ -331,54 +331,8 @@ export default function ContactPage({ onBack }) {
               </div>
             </div>
 
-            {/* Follow Our Work */}
-            <div
-              className="rounded-2xl p-6"
-              style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
-            >
-              <h3 className="text-white font-bold text-base mb-1">Follow Our Work</h3>
-              <p className="text-[#86868B] text-xs mb-4">Stay updated with our latest work and behind-the-scenes content</p>
-              <div className="grid grid-cols-2 gap-3">
-                <a
-                  href="https://instagram.com/pixelcraftstudio"
-                  target="_blank" rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 hover:opacity-90"
-                  style={{ background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)', color: '#fff' }}
-                >
-                  <InstagramIcon /> Instagram
-                </a>
-                <a
-                  href="https://linkedin.com/company/pixelcraftstudio"
-                  target="_blank" rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 hover:opacity-90"
-                  style={{ background: '#0A66C2', color: '#fff' }}
-                >
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                  LinkedIn
-                </a>
-              </div>
-            </div>
 
-            {/* Business Hours */}
-            <div
-              className="rounded-2xl p-6"
-              style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
-            >
-              <h3 className="text-white font-bold text-base mb-4">Business Hours</h3>
-              <div className="flex flex-col gap-3">
-                {[
-                  { day: 'Monday – Friday', time: '9:00 AM – 7:00 PM' },
-                  { day: 'Saturday', time: '10:00 AM – 6:00 PM' },
-                  { day: 'Sunday', time: 'By Appointment' },
-                ].map(({ day, time }) => (
-                  <div key={day} className="flex items-center justify-between text-sm border-b border-white/[0.05] pb-3 last:border-0 last:pb-0">
-                    <span className="text-[#86868B]">{day}</span>
-                    <span className="text-white font-medium">{time}</span>
-                  </div>
-                ))}
-                <p className="text-[#86868B]/60 text-[11px] mt-1">Emergency bookings and weekend projects available on request</p>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
