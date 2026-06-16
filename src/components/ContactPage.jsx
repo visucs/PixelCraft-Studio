@@ -109,6 +109,18 @@ export default function ContactPage({ onBack }) {
     }
   };
 
+  const sendWhatsApp = () => {
+    if (!form.firstName || !form.message) {
+      alert('Pehle naam aur message bharo!');
+      return;
+    }
+    const phone = '917079092440';
+    const text = encodeURIComponent(
+      `Naam: ${form.firstName} ${form.lastName}\nEmail: ${form.email}\nService: ${form.service || 'Not specified'}\n\nMessage: ${form.message}`
+    );
+    window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+  };
+
   const whatsappMsg = encodeURIComponent(
     `Hi PixelCraft Studio! I'd like to discuss a project.\n\nName: ${form.firstName} ${form.lastName}\nEmail: ${form.email}\nService: ${form.service || 'Not specified'}\n\n${form.message}`
   );
@@ -230,7 +242,7 @@ export default function ContactPage({ onBack }) {
                   <span className="text-white font-semibold">24 hours</span>.
                 </p>
                 <a
-                  href={`https://wa.me/919313202075?text=${whatsappMsg}`}
+                  href={`https://wa.me/917079092440?text=${whatsappMsg}`}
                   target="_blank" rel="noopener noreferrer"
                   className="mt-6 flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold"
                   style={{ background: '#25D366', color: '#fff' }}
@@ -282,14 +294,14 @@ export default function ContactPage({ onBack }) {
                       className={inputCls(errors.message) + ' resize-none'} />
                   </Field>
 
-                  <a
-                    href={`https://wa.me/919313202075?text=${whatsappMsg}`}
-                    target="_blank" rel="noopener noreferrer"
+                  <button
+                    type="button"
+                    onClick={sendWhatsApp}
                     className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
                     style={{ background: '#25D366', color: '#fff' }}
                   >
                     <MessageCircle size={16} /> Send Message via WhatsApp
-                  </a>
+                  </button>
 
                   <button type="submit" disabled={loading}
                     className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
@@ -398,7 +410,7 @@ export default function ContactPage({ onBack }) {
             Your vision deserves to be built beautifully. Contact us today and let's start planning your perfect web project.
           </p>
           <a
-            href="https://wa.me/919313202075?text=Hi%20PixelCraft%20Studio!%20I'd%20like%20to%20start%20a%20project."
+            href="https://wa.me/917079092440?text=Hi%20PixelCraft%20Studio!%20I'd%20like%20to%20start%20a%20project."
             target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90 active:scale-95"
             style={{ background: '#0071E3', color: '#fff' }}
