@@ -152,19 +152,21 @@
   }
 
   .pricing-card {
-    background: #0A0A0A;
+    background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     transition: all 0.3s ease;
   }
 
   .pricing-card:hover {
+    background: rgba(255, 255, 255, 0.035);
     border-color: rgba(0, 113, 227, 0.3);
     transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   }
 
   .pricing-card.featured {
+    background: rgba(255, 255, 255, 0.04);
     border-color: #0071E3;
     box-shadow: 0 0 40px rgba(0, 113, 227, 0.2), 0 20px 60px rgba(0, 0, 0, 0.5);
   }

@@ -84,7 +84,7 @@ export default function Pricing() {
           className="font-black tracking-[0.15em] uppercase"
           style={{
             fontSize: 'clamp(80px, 14vw, 180px)',
-            color: 'rgba(255,255,255,0.025)',
+            color: 'rgba(255,255,255,0.04)',
             lineHeight: 1,
           }}
         >
