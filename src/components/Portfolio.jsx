@@ -198,7 +198,7 @@ function ProjectCard({ project, index }) {
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-between p-10 md:p-14">
         {/* Top row */}
-        <div className="flex items-start justify-between">
+        <div className="flex items-start justify-between gap-4">
           <span
             className="text-xs font-semibold tracking-widest uppercase"
             style={{ color: project.colors.accent }}
@@ -207,7 +207,7 @@ function ProjectCard({ project, index }) {
           </span>
           {/* Template badge */}
           <span
-            className="text-[10px] font-semibold px-3 py-1 rounded-full"
+            className="text-[10px] font-semibold px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0"
             style={{
               background: `${project.colors.accent}12`,
               color: project.colors.accent,
