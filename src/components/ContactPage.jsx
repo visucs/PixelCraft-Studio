@@ -181,8 +181,7 @@ export default function ContactPage({ onBack }) {
 
           {/* LEFT — Form */}
           <div
-            className="rounded-2xl p-8"
-            style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
+            className="rounded-2xl p-8 bg-white/5 border border-white/10 relative overflow-hidden"
           >
             {submitted ? (
               <div className="flex flex-col items-center justify-center text-center py-16">
@@ -275,15 +274,13 @@ export default function ContactPage({ onBack }) {
 
             {/* Quick Contact */}
             <div
-              className="rounded-2xl p-6"
-              style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
+              className="rounded-2xl p-6 bg-white/5 border border-white/10 relative overflow-hidden"
             >
               <h3 className="text-white font-bold text-base mb-4">Quick Contact</h3>
               <div className="flex flex-col gap-3">
                 <a
                   href="tel:+917079092440"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 hover:border-white/20"
-                  style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.8)' }}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 hover:border-white/20 bg-white/5 border border-white/10 text-white/80"
                 >
                   <Phone size={15} className="text-[#0071E3]" />
                   <div>
@@ -293,8 +290,7 @@ export default function ContactPage({ onBack }) {
                 </a>
                 <a
                   href="mailto:hello@pixelcraftstudio.com"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 hover:border-white/20"
-                  style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.8)' }}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 hover:border-white/20 bg-white/5 border border-white/10 text-white/80"
                 >
                   <Mail size={15} className="text-[#0071E3]" />
                   <div>
@@ -303,10 +299,9 @@ export default function ContactPage({ onBack }) {
                   </div>
                 </a>
                 <a
-                  href="https://wa.me/919313202075"
+                  href="https://wa.me/917079092440"
                   target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:opacity-90"
-                  style={{ background: '#25D366', color: '#fff' }}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:opacity-90 bg-[#25D366] text-white"
                 >
                   <MessageCircle size={15} />
                   <div>
@@ -319,8 +314,7 @@ export default function ContactPage({ onBack }) {
 
             {/* Follow Our Work */}
             <div
-              className="rounded-2xl p-6"
-              style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
+              className="rounded-2xl p-6 bg-white/5 border border-white/10 relative overflow-hidden"
             >
               <h3 className="text-white font-bold text-base mb-1">Follow Our Work</h3>
               <p className="text-[#86868B] text-xs mb-4 leading-relaxed">Stay updated with our latest work and behind-the-scenes content</p>
