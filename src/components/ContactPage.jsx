@@ -1,5 +1,22 @@
 import { useState, useEffect } from 'react';
-import { ArrowLeft, Phone, Mail, MapPin, Clock, MessageCircle, Instagram, Send, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Phone, Mail, MapPin, Clock, MessageCircle, Send, ArrowRight } from 'lucide-react';
+
+const InstagramIcon = () => (
+  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+  </svg>
+);
+
+const LinkedInIcon = () => (
+  <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+    <rect x="2" y="9" width="4" height="12"/>
+    <circle cx="4" cy="4" r="2"/>
+  </svg>
+);
+
 
 const infoCards = [
   {
@@ -328,7 +345,7 @@ export default function ContactPage({ onBack }) {
                   className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 hover:opacity-90"
                   style={{ background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)', color: '#fff' }}
                 >
-                  <Instagram size={13} /> Instagram
+                  <InstagramIcon /> Instagram
                 </a>
                 <a
                   href="https://linkedin.com/company/pixelcraftstudio"
