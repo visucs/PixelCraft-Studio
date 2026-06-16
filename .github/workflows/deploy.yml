@@ -81,3 +81,25 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
+  # ════════════════════════════════
+  # Docker Image Build
+  # ════════════════════════════════
+  docker-build:
+    name: Docker Image Build
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Docker image banao
+        run: docker build -t pixelcraft-studio .
+
+      - name: Image test karo
+        run: |
+          docker run -d -p 3000:80 --name test pixelcraft-studio
+          sleep 5
+          curl http://localhost:3000
+          docker stop test
+
