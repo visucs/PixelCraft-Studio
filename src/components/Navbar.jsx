@@ -4,7 +4,7 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 
 const links = ['Work', 'Services', 'Process', 'Pricing', 'Contact'];
 
-export default function Navbar({ onStartProject }) {
+export default function Navbar({ onStartProject, onContact }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -14,8 +14,9 @@ export default function Navbar({ onStartProject }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollTo = (id) => {
-    const el = document.getElementById(id.toLowerCase());
+  const handleLink = (link) => {
+    if (link === 'Contact') { onContact?.(); setMobileOpen(false); return; }
+    const el = document.getElementById(link.toLowerCase());
     if (el) el.scrollIntoView({ behavior: 'smooth' });
     setMobileOpen(false);
   };
@@ -43,7 +44,7 @@ export default function Navbar({ onStartProject }) {
             {links.map((link) => (
               <button
                 key={link}
-                onClick={() => scrollTo(link)}
+                onClick={() => handleLink(link)}
                 className="text-[#86868B] hover:text-white text-sm font-medium transition-colors duration-200 tracking-tight"
               >
                 {link}
@@ -86,7 +87,7 @@ export default function Navbar({ onStartProject }) {
               {links.map((link) => (
                 <button
                   key={link}
-                  onClick={() => scrollTo(link)}
+                  onClick={() => handleLink(link)}
                   className="text-white text-xl font-medium text-left hover:text-[#0071E3] transition-colors"
                 >
                   {link}

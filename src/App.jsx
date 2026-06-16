@@ -13,23 +13,34 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import StartProject from './components/StartProject';
 import LegalPage from './components/LegalPage';
+import ContactPage from './components/ContactPage';
 
 export default function App() {
   const [projectOpen, setProjectOpen] = useState(false);
-  const [legalTab, setLegalTab] = useState(null); // null | 'privacy' | 'terms'
+  const [legalTab, setLegalTab]       = useState(null); // null | 'privacy' | 'terms'
+  const [showContact, setShowContact] = useState(false);
+
+  const goBack = () => { window.scrollTo({ top: 0 }); };
+
+  if (showContact) {
+    return <ContactPage onBack={() => { setShowContact(false); goBack(); }} />;
+  }
 
   if (legalTab) {
     return (
       <LegalPage
         defaultTab={legalTab}
-        onBack={() => { setLegalTab(null); window.scrollTo({ top: 0 }); }}
+        onBack={() => { setLegalTab(null); goBack(); }}
       />
     );
   }
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <Navbar onStartProject={() => setProjectOpen(true)} />
+      <Navbar
+        onStartProject={() => setProjectOpen(true)}
+        onContact={() => setShowContact(true)}
+      />
       <Hero onStartProject={() => setProjectOpen(true)} />
       <Marquee />
       <Services />
@@ -40,10 +51,12 @@ export default function App() {
       <Pricing onStartProject={() => setProjectOpen(true)} />
       <FAQ />
       <CTA onStartProject={() => setProjectOpen(true)} />
-      <Footer onLegal={(tab) => setLegalTab(tab)} />
+      <Footer
+        onLegal={(tab) => setLegalTab(tab)}
+        onContact={() => setShowContact(true)}
+      />
 
       <StartProject open={projectOpen} onClose={() => setProjectOpen(false)} />
     </div>
   );
 }
-

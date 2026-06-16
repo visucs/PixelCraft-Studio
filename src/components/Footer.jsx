@@ -36,7 +36,7 @@ const socials = [
   { icon: DribbbleIcon, href: '#', label: 'Dribbble' },
 ];
 
-export default function Footer({ onLegal }) {
+export default function Footer({ onLegal, onContact }) {
   return (
     <footer className="bg-[#030303] border-t border-white/[0.05] py-12 px-6">
       <div className="max-w-7xl mx-auto">
@@ -60,6 +60,14 @@ export default function Footer({ onLegal }) {
                 <button
                   key={link}
                   onClick={() => onLegal?.(link.toLowerCase())}
+                  className="text-[#86868B] hover:text-white text-sm font-medium transition-colors"
+                >
+                  {link}
+                </button>
+              ) : link === 'Contact' ? (
+                <button
+                  key={link}
+                  onClick={() => onContact?.()}
                   className="text-[#86868B] hover:text-white text-sm font-medium transition-colors"
                 >
                   {link}
