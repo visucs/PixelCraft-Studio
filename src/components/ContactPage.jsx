@@ -33,20 +33,6 @@ const infoCards = [
     sub: 'Send us your requirements',
     href: 'mailto:hello@pixelcraftstudio.com',
   },
-  {
-    icon: InstagramIcon,
-    title: 'Instagram',
-    value: '@pixelcraftstudio',
-    sub: 'Follow us for updates',
-    href: 'https://instagram.com/pixelcraftstudio',
-  },
-  {
-    icon: LinkedInIcon,
-    title: 'LinkedIn',
-    value: 'PixelCraft Studio',
-    sub: 'Connect with our team',
-    href: 'https://linkedin.com/company/pixelcraftstudio',
-  },
 ];
 
 const services = [
@@ -331,7 +317,32 @@ export default function ContactPage({ onBack }) {
               </div>
             </div>
 
-
+            {/* Follow Our Work */}
+            <div
+              className="rounded-2xl p-6"
+              style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
+            >
+              <h3 className="text-white font-bold text-base mb-1">Follow Our Work</h3>
+              <p className="text-[#86868B] text-xs mb-4 leading-relaxed">Stay updated with our latest work and behind-the-scenes content</p>
+              <div className="grid grid-cols-2 gap-3">
+                <a
+                  href="https://instagram.com/pixelcraftstudio"
+                  target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 py-3 rounded-xl text-[13px] font-semibold transition-all duration-200 hover:opacity-90"
+                  style={{ background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)', color: '#fff' }}
+                >
+                  <InstagramIcon size={14} /> Instagram
+                </a>
+                <a
+                  href="https://linkedin.com/company/pixelcraftstudio"
+                  target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 py-3 rounded-xl text-[13px] font-semibold transition-all duration-200 hover:opacity-90"
+                  style={{ background: '#0A66C2', color: '#fff' }}
+                >
+                  <LinkedInIcon size={14} /> LinkedIn
+                </a>
+              </div>
+            </div>
 
           </div>
         </div>
