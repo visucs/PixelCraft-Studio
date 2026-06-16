@@ -33,6 +33,20 @@ const infoCards = [
     sub: 'Send us your requirements',
     href: 'mailto:hello@pixelcraftstudio.com',
   },
+  {
+    icon: InstagramIcon,
+    title: 'Instagram',
+    value: '@pixelcraftstudio',
+    sub: 'Follow us for updates',
+    href: 'https://instagram.com/pixelcraftstudio',
+  },
+  {
+    icon: LinkedInIcon,
+    title: 'LinkedIn',
+    value: 'PixelCraft Studio',
+    sub: 'Connect with our team',
+    href: 'https://linkedin.com/company/pixelcraftstudio',
+  },
 ];
 
 const services = [
@@ -181,7 +195,7 @@ export default function ContactPage({ onBack }) {
 
           {/* LEFT — Form */}
           <div
-            className="rounded-2xl p-8 bg-white/5 border border-white/10 relative overflow-hidden"
+            className="rounded-2xl p-8 bg-white/5 border border-white/10 relative overflow-hidden transform-gpu isolate"
           >
             {submitted ? (
               <div className="flex flex-col items-center justify-center text-center py-16">
@@ -274,7 +288,7 @@ export default function ContactPage({ onBack }) {
 
             {/* Quick Contact */}
             <div
-              className="rounded-2xl p-6 bg-white/5 border border-white/10 relative overflow-hidden"
+              className="rounded-2xl p-6 bg-white/5 border border-white/10 relative overflow-hidden transform-gpu isolate"
             >
               <h3 className="text-white font-bold text-base mb-4">Quick Contact</h3>
               <div className="flex flex-col gap-3">
@@ -314,7 +328,7 @@ export default function ContactPage({ onBack }) {
 
             {/* Follow Our Work */}
             <div
-              className="rounded-2xl p-6 bg-white/5 border border-white/10 relative overflow-hidden"
+              className="rounded-2xl p-6 bg-white/5 border border-white/10 relative overflow-hidden transform-gpu isolate"
             >
               <h3 className="text-white font-bold text-base mb-1">Follow Our Work</h3>
               <p className="text-[#86868B] text-xs mb-4 leading-relaxed">Stay updated with our latest work and behind-the-scenes content</p>
