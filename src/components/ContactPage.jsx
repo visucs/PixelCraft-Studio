@@ -181,57 +181,59 @@ export default function ContactPage({ onBack }) {
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDAuNWg0ME0wIDM5LjVoNDBNMC41IDB2NDBNMzkuNSAwdjQwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] [mask-image:linear-gradient(to_bottom,white,transparent)] opacity-30" />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 relative group cursor-default">
-            {/* Glassmorphic Pill Background */}
-            <div className="absolute inset-0 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-md transition-all duration-300 group-hover:bg-white/[0.05] group-hover:border-white/[0.15]" />
+        <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-10 relative group cursor-default" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', backdropFilter: 'blur(10px)' }}>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#0071E3]/20 to-[#00C6FF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
             <div className="relative flex items-center gap-2">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00C6FF] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00C6FF]"></span>
               </span>
-              <span className="text-white/80 text-xs font-semibold tracking-wide">We're currently taking new projects</span>
+              <span className="text-white/90 text-[11px] font-bold uppercase tracking-widest">Accepting New Projects</span>
             </div>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[1.1] mb-6">
+          <h1 className="text-6xl md:text-[5.5rem] lg:text-[6.5rem] font-black tracking-tighter leading-[1.05] mb-8">
             Let's create <br className="hidden md:block" />
             <span
               className="bg-clip-text text-transparent"
-              style={{ backgroundImage: 'linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.4) 100%)' }}
+              style={{ backgroundImage: 'linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.5) 100%)' }}
             >
               something
             </span>{' '}
             <span
-              className="bg-clip-text text-transparent relative"
+              className="bg-clip-text text-transparent relative inline-block"
               style={{ backgroundImage: 'linear-gradient(135deg, #0071E3 0%, #00C6FF 100%)' }}
             >
               iconic.
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#0071E3] to-[#00C6FF] opacity-20 blur-2xl -z-10 rounded-full" />
             </span>
           </h1>
           
-          <p className="text-[#86868B] text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+          <p className="text-[#86868B] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
             Elevate your brand with world-class design and flawless engineering. Start a conversation with us today to explore the possibilities.
           </p>
 
-          <div className="flex items-center gap-4 flex-col sm:flex-row">
+          <div className="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto">
             <button
               onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              className="group relative inline-flex items-center justify-center gap-2 px-10 py-4 rounded-2xl font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
             >
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#0071E3] to-[#00C6FF] opacity-100 transition-opacity duration-300" />
-              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg bg-gradient-to-r from-[#0071E3] to-[#00C6FF]" />
-              <span className="relative text-white flex items-center gap-2">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#0071E3] to-[#00C6FF] transition-all duration-300" />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-[#0071E3] to-[#00C6FF]" />
+              <span className="relative text-white flex items-center gap-2 font-semibold tracking-wide">
                 Start Your Journey <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </button>
             
             <a
               href="mailto:hello@pixelcraftstudio.com"
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.06] hover:border-white/[0.15]"
+              className="group relative inline-flex items-center justify-center gap-2 px-10 py-4 rounded-2xl font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
+              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
             >
+              <div className="absolute inset-0 rounded-2xl bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <Mail size={16} className="text-white/60 group-hover:text-white transition-colors" />
-              <span className="text-white/80 group-hover:text-white transition-colors">hello@pixelcraftstudio.com</span>
+              <span className="text-white/80 group-hover:text-white transition-colors tracking-wide">hello@pixelcraftstudio.com</span>
             </a>
           </div>
         </div>
@@ -815,43 +817,50 @@ export default function ContactPage({ onBack }) {
 
 
       {/* ── BOTTOM CTA ── */}
-      <section className="px-6 py-24 relative overflow-hidden">
+      <section className="px-6 py-32 relative overflow-hidden">
         <div className="max-w-5xl mx-auto">
-          <div className="relative rounded-[2.5rem] overflow-hidden p-10 md:p-20 text-center border"
+          <div className="relative rounded-[3rem] overflow-hidden p-12 md:p-28 text-center group"
                style={{ 
-                 background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
-                 borderColor: 'rgba(255,255,255,0.08)',
-                 boxShadow: '0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1)'
+                 background: 'rgba(255,255,255,0.03)',
+                 border: '1px solid rgba(255,255,255,0.08)',
+                 boxShadow: '0 40px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.15)',
+                 backdropFilter: 'blur(20px)'
                }}>
             
+            {/* Animated hover border */}
+            <div className="absolute inset-0 rounded-[3rem] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                 style={{ boxShadow: 'inset 0 0 0 2px rgba(0,113,227,0.4), inset 0 0 20px rgba(0,113,227,0.2)' }} />
+
             {/* Decorative background elements inside the card */}
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDAuNWg0ME0wIDM5LjVoNDBNMC41IDB2NDBNMzkuNSAwdjQwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNCkiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] [mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)] opacity-50" />
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[200px] bg-gradient-to-b from-[#0071E3]/20 to-transparent blur-[60px]" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDAuNWg0ME0wIDM5LjVoNDBNMC41IDB2NDBNMzkuNSAwdjQwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] [mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)] opacity-80" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-[400px] bg-gradient-to-b from-[#0071E3]/30 via-[#00C6FF]/15 to-transparent blur-[90px] group-hover:opacity-80 opacity-50 transition-opacity duration-700" />
+              {/* Bottom glow */}
+              <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[70%] h-[200px] bg-gradient-to-t from-[#9B5DE5]/30 to-transparent blur-[70px] group-hover:opacity-80 opacity-50 transition-opacity duration-700" />
             </div>
 
             <div className="relative z-10 flex flex-col items-center">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0071E3] to-[#00C6FF] flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(0,113,227,0.4)]">
-                <Send size={28} className="text-white" />
+              <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-[#0071E3] to-[#00C6FF] flex items-center justify-center mb-10 shadow-[0_0_50px_rgba(0,113,227,0.6)] transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                <Send size={40} className="text-white" />
               </div>
 
-              <h2 className="text-white text-4xl md:text-5xl font-black tracking-tight mb-5 leading-tight">
+              <h2 className="text-white text-5xl md:text-[5rem] lg:text-[6rem] font-black tracking-tighter mb-8 leading-[1.05]">
                 Ready to elevate <br className="hidden md:block" />
                 your digital presence?
               </h2>
               
-              <p className="text-[#86868B] text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+              <p className="text-[#86868B] text-xl md:text-2xl max-w-2xl mx-auto mb-14 leading-relaxed font-medium">
                 Join the ambitious brands building with PixelCraft Studio. Let's create something extraordinary together.
               </p>
               
               <a
                 href="https://wa.me/919294979278?text=Hi%20PixelCraft%20Studio!%20I'd%20like%20to%20start%20a%20project."
                 target="_blank" rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="group/btn relative inline-flex items-center justify-center gap-3 px-12 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
               >
-                <div className="absolute inset-0 rounded-xl bg-white text-black opacity-100 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]" />
-                <span className="relative text-black flex items-center gap-2">
-                  Start Your Project Journey <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <div className="absolute inset-0 rounded-full bg-white text-black opacity-100 transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.3)] group-hover/btn:shadow-[0_0_50px_rgba(255,255,255,0.5)]" />
+                <span className="relative text-black flex items-center gap-2 tracking-wide font-black">
+                  Start Your Project Journey <ArrowRight size={20} className="group-hover/btn:translate-x-2 transition-transform duration-300" />
                 </span>
               </a>
             </div>
