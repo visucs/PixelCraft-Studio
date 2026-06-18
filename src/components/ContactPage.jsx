@@ -149,23 +149,32 @@ export default function ContactPage({ onBack }) {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Sticky Header */}
-      <header
-        className="sticky top-0 z-50 border-b border-white/[0.06]"
-        style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(20px)' }}
-      >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <button onClick={onBack} className="flex items-center gap-2 cursor-pointer">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0071E3] to-[#00C6FF] flex items-center justify-center">
-              <span className="text-white font-black text-sm">P</span>
+      {/* Floating Glass Header */}
+      <header className="fixed top-0 inset-x-0 z-[100] flex justify-center px-4 pt-6">
+        <div 
+          className="relative w-full max-w-7xl flex items-center justify-between px-6 py-3 rounded-[2rem] transition-all duration-500 shadow-[0_20px_40px_rgba(0,0,0,0.5)] border border-white/[0.08]"
+          style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(24px)' }}
+        >
+          {/* Logo */}
+          <button onClick={onBack} className="group relative flex items-center gap-3 z-50">
+            <div className="relative w-10 h-10 rounded-2xl flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 bg-white/[0.03] border border-white/[0.05]">
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#00C6FF]/20 to-[#9B5DE5]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="text-white font-black text-lg relative z-10 group-hover:text-[#00C6FF] transition-colors duration-300">P</span>
             </div>
-            <span className="text-white font-bold text-lg tracking-tight">PixelCraft</span>
+            <span className="text-white font-black text-xl tracking-tight relative z-10 hidden sm:block">
+              Pixel<span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60 group-hover:from-[#00C6FF] group-hover:to-[#9B5DE5] transition-all duration-300">Craft</span>
+            </span>
           </button>
+
+          {/* Back Button */}
           <button
             onClick={onBack}
-            className="flex items-center gap-2 text-sm text-[#86868B] hover:text-white transition-colors"
+            className="group relative flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 hover:scale-105 active:scale-95 border border-white/[0.05] hover:border-[#00C6FF]/30 overflow-hidden"
+            style={{ background: 'rgba(255,255,255,0.03)' }}
           >
-            <ArrowLeft size={14} /> Back to Home
+            <div className="absolute inset-0 bg-gradient-to-r from-[#00C6FF]/10 to-[#9B5DE5]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <ArrowLeft size={16} className="text-white/60 group-hover:text-white group-hover:-translate-x-1 transition-all relative z-10" /> 
+            <span className="text-white/80 group-hover:text-white transition-colors relative z-10">Back to Home</span>
           </button>
         </div>
       </header>
