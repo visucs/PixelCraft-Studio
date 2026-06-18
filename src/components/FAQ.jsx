@@ -56,40 +56,94 @@ export default function FAQ() {
   const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section className="py-28 px-6 bg-[#030303]">
-      <div className="max-w-3xl mx-auto">
-        <div ref={ref} className="section-reveal text-center mb-16">
-          <p className="text-[#0071E3] text-sm font-semibold tracking-widest uppercase mb-4">FAQ</p>
-          <h2 className="section-title text-white mb-5">
+    <section className="py-32 px-6 bg-black relative overflow-hidden">
+      {/* Background Ambient Glows */}
+      <div className="absolute top-0 right-[-10%] w-[600px] h-[600px] bg-[#9B5DE5]/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[800px] h-[800px] bg-[#00C6FF]/10 blur-[150px] rounded-full pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto relative z-10">
+        {/* Header */}
+        <div ref={ref} className="section-reveal flex flex-col items-center text-center mb-24">
+          {/* Pill Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 relative group cursor-default" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', backdropFilter: 'blur(10px)' }}>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#9B5DE5]/20 to-[#00C6FF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+            <div className="relative flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#9B5DE5] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#9B5DE5]"></span>
+              </span>
+              <span className="text-white/90 text-[11px] font-bold uppercase tracking-widest">FAQ</span>
+            </div>
+          </div>
+
+          <h2 className="text-5xl md:text-6xl lg:text-[5rem] font-black tracking-tighter mb-8 leading-[1.05] relative">
             Got
-            <br />
-            <span className="text-[#86868B]">Questions?</span>
+            <br className="hidden md:block" />
+            <span className="relative inline-block mt-2 md:mt-0 ml-0 md:ml-4">
+              <span className="text-transparent bg-clip-text relative z-10" style={{ backgroundImage: 'linear-gradient(135deg, #9B5DE5 0%, #00C6FF 100%)' }}>
+                Questions?
+              </span>
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#9B5DE5] to-[#00C6FF] opacity-20 blur-2xl -z-10 rounded-full" />
+            </span>
           </h2>
+          <p className="text-[#86868B] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+            Everything you need to know about the process, pricing, and how we work.
+          </p>
         </div>
 
-        <div className="border border-white/[0.06] rounded-2xl overflow-hidden">
-          {faqs.map((faq, i) => (
-            <div key={i} className="accordion-item">
-              <button
-                className="w-full flex items-center justify-between px-7 py-6 text-left hover:bg-white/[0.02] transition-colors duration-200"
-                onClick={() => toggle(i)}
+        {/* FAQ Accordion List */}
+        <div className="flex flex-col gap-4">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div 
+                key={i} 
+                className="group relative rounded-2xl overflow-hidden transition-all duration-500"
+                style={{
+                  background: isOpen ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.02)',
+                  border: '1px solid',
+                  borderColor: isOpen ? 'rgba(155,93,229,0.3)' : 'rgba(255,255,255,0.06)',
+                  backdropFilter: 'blur(12px)',
+                  boxShadow: isOpen ? '0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1)' : 'inset 0 1px 0 rgba(255,255,255,0.02)',
+                  transform: isOpen ? 'translateY(-2px)' : 'translateY(0)'
+                }}
               >
-                <span className={`text-[15px] font-medium pr-4 ${openIndex === i ? 'text-white' : 'text-white/80'}`}>
-                  {faq.question}
-                </span>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                  openIndex === i ? 'bg-[#0071E3] text-white' : 'bg-white/[0.06] text-[#86868B]'
-                }`}>
-                  {openIndex === i ? <Minus size={14} /> : <Plus size={14} />}
+                {/* Subtle internal glow on active */}
+                <div 
+                  className={`absolute inset-0 bg-gradient-to-r from-[#9B5DE5]/5 to-[#00C6FF]/5 opacity-0 transition-opacity duration-500 pointer-events-none ${isOpen ? 'opacity-100' : ''}`}
+                />
+
+                <button
+                  className="w-full flex items-center justify-between px-6 md:px-8 py-6 text-left relative z-10"
+                  onClick={() => toggle(i)}
+                >
+                  <span className={`text-base md:text-lg font-semibold tracking-wide pr-4 transition-colors duration-300 ${isOpen ? 'text-white' : 'text-white/80 group-hover:text-white'}`}>
+                    {faq.question}
+                  </span>
+                  <div 
+                    className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-500 transform ${
+                      isOpen 
+                        ? 'bg-gradient-to-br from-[#9B5DE5] to-[#00C6FF] text-white rotate-180 shadow-[0_0_15px_rgba(155,93,229,0.4)]' 
+                        : 'bg-white/[0.04] text-[#86868B] group-hover:bg-white/[0.08] group-hover:text-white group-hover:scale-110'
+                    }`}
+                  >
+                    {isOpen ? <Minus size={16} className="transition-transform duration-500" /> : <Plus size={16} className="transition-transform duration-500" />}
+                  </div>
+                </button>
+                <div 
+                  className="overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                  style={{
+                    maxHeight: isOpen ? '250px' : '0',
+                    opacity: isOpen ? 1 : 0,
+                  }}
+                >
+                  <p className="px-6 md:px-8 pb-8 text-white/60 text-base leading-relaxed relative z-10">
+                    {faq.answer}
+                  </p>
                 </div>
-              </button>
-              <div className={`accordion-content ${openIndex === i ? 'open' : ''}`}>
-                <p className="px-7 pb-6 text-[#86868B] text-[15px] leading-relaxed">
-                  {faq.answer}
-                </p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
