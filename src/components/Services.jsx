@@ -59,18 +59,32 @@ export default function Services() {
 
   return (
     <section id="services" className="py-28 px-6 max-w-7xl mx-auto">
-      <div ref={ref} className="section-reveal flex flex-col items-center text-center mb-20">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6" style={{ background: 'rgba(0,113,227,0.1)', border: '1px solid rgba(0,113,227,0.2)' }}>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#0071E3] animate-pulse" />
-          <span className="text-[#0071E3] text-[11px] font-bold tracking-widest uppercase">Our Capabilities</span>
+      <div ref={ref} className="section-reveal flex flex-col items-center text-center mb-24 relative">
+        {/* Subtle background glow for the header */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-[#0071E3]/10 to-[#00C6FF]/10 blur-[80px] rounded-full pointer-events-none" />
+        
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 relative group" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', backdropFilter: 'blur(10px)' }}>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#0071E3]/20 to-[#00C6FF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+          <div className="relative flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00C6FF] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00C6FF]"></span>
+            </span>
+            <span className="text-white/90 text-[11px] font-bold uppercase tracking-widest">Our Capabilities</span>
+          </div>
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-6 leading-tight">
-          Full-Stack Creative <br/>
-          <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #0071E3 0%, #00C6FF 100%)' }}>
-            Services
+        
+        <h2 className="text-5xl md:text-6xl lg:text-[5rem] font-black tracking-tighter mb-8 leading-[1.05] relative">
+          Full-Stack Creative <br className="hidden md:block" />
+          <span className="relative inline-block mt-2 md:mt-0">
+            <span className="text-transparent bg-clip-text relative z-10" style={{ backgroundImage: 'linear-gradient(135deg, #0071E3 0%, #00C6FF 100%)' }}>
+              Services
+            </span>
+            <div className="absolute -inset-2 bg-gradient-to-r from-[#0071E3] to-[#00C6FF] opacity-20 blur-2xl -z-10 rounded-full" />
           </span>
         </h2>
-        <p className="text-[#86868B] text-lg max-w-xl mx-auto leading-relaxed font-medium">
+        
+        <p className="text-[#86868B] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
           From concept to launch, we handle every layer of your digital presence with uncompromising quality and attention to detail.
         </p>
       </div>
