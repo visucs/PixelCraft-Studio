@@ -1,5 +1,12 @@
 import { useEffect, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShieldCheck, BadgeCheck, Zap, Globe } from 'lucide-react';
+
+const trustBadges = [
+  { icon: ShieldCheck, label: 'Secure Process' },
+  { icon: BadgeCheck, label: 'Money-Back Guarantee' },
+  { icon: Zap,        label: '7-Day Design' },
+  { icon: Globe,      label: 'Remote-Friendly' },
+];
 
 export default function CTA({ onStartProject }) {
   const ref = useRef(null);
@@ -66,16 +73,15 @@ export default function CTA({ onStartProject }) {
             </button>
           </div>
 
-          {/* Trust badges */}
+          {/* Trust badges — 21st.dev style clean icon + label */}
           <div className="mt-14 flex flex-wrap items-center justify-center gap-8">
-            {[
-              '🔒 Secure Process',
-              '✓ Money-Back Guarantee',
-              '⚡ 7-Day Design',
-              '🌍 Remote-Friendly',
-            ].map((badge, i) => (
-              <div key={i} className="text-[#86868B] text-sm font-medium">
-                {badge}
+            {trustBadges.map(({ icon: Icon, label }, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2 text-[#86868B] text-sm font-medium hover:text-white/80 transition-colors duration-200"
+              >
+                <Icon size={15} className="text-[#0071E3] flex-shrink-0" strokeWidth={2} />
+                {label}
               </div>
             ))}
           </div>

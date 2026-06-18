@@ -31,3 +31,9 @@ dist-ssr
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# IDE and AI tools
+.cursor/
+.gemini/
+.zed/
+.codex/

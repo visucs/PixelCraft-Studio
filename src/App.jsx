@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Agentation } from 'agentation';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
@@ -57,6 +58,9 @@ export default function App() {
       />
 
       <StartProject open={projectOpen} onClose={() => setProjectOpen(false)} />
+
+      {/* Agentation: AI visual feedback tool — only in dev */}
+      {import.meta.env.DEV && <Agentation />}
     </div>
   );
 }

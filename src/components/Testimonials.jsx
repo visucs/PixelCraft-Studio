@@ -203,7 +203,7 @@ export default function Testimonials() {
           ))}
         </div>
         <p className="text-[#86868B] text-sm">
-          <span className="text-white font-semibold">5.0</span> average · 150+ client reviews
+          <span className="text-white font-semibold">4.5</span> average · 150+ client reviews
         </p>
       </div>
     </section>
