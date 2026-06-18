@@ -13,6 +13,19 @@
 
   html {
     scroll-behavior: smooth;
+    transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html.light {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  /* Re-invert images, videos, and specific elements so they look normal */
+  html.light img,
+  html.light video,
+  html.light canvas,
+  html.light .no-invert {
+    filter: invert(1) hue-rotate(180deg);
   }
 
   body {
@@ -22,6 +35,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: clip;
+    min-height: 100vh;
   }
 
   ::-webkit-scrollbar {

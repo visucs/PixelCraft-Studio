@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowRight, Sparkles, Sun, Moon } from 'lucide-react';
 
 const links = ['Work', 'Services', 'Process', 'Pricing', 'Contact'];
 
@@ -8,6 +8,7 @@ export default function Navbar({ onStartProject, onContact }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -15,12 +16,61 @@ export default function Navbar({ onStartProject, onContact }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Update the document class for theme handling
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    } else {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
   const handleLink = (link) => {
     if (link === 'Contact') { onContact?.(); setMobileOpen(false); return; }
     const el = document.getElementById(link.toLowerCase());
     if (el) el.scrollIntoView({ behavior: 'smooth' });
     setMobileOpen(false);
   };
+
+  const ThemeToggle = () => (
+    <button
+      onClick={() => setIsDarkMode(!isDarkMode)}
+      className="relative flex items-center justify-center w-10 h-10 rounded-full overflow-hidden group transition-all duration-300 border border-white/[0.05] hover:border-white/[0.15] bg-white/[0.02] hover:bg-white/[0.05] no-invert"
+      aria-label="Toggle Theme"
+      title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+    >
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#00C6FF]/10 to-[#9B5DE5]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative z-10 flex items-center justify-center w-full h-full">
+        <AnimatePresence mode="wait" initial={false}>
+          {isDarkMode ? (
+            <motion.div
+              key="moon"
+              initial={{ y: -20, opacity: 0, rotate: -90 }}
+              animate={{ y: 0, opacity: 1, rotate: 0 }}
+              exit={{ y: 20, opacity: 0, rotate: 90 }}
+              transition={{ duration: 0.3, type: 'spring', stiffness: 200, damping: 10 }}
+              className="absolute"
+            >
+              <Moon size={18} className="text-[#00C6FF]" fill="currentColor" fillOpacity={0.2} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="sun"
+              initial={{ y: -20, opacity: 0, rotate: -90 }}
+              animate={{ y: 0, opacity: 1, rotate: 0 }}
+              exit={{ y: 20, opacity: 0, rotate: 90 }}
+              transition={{ duration: 0.3, type: 'spring', stiffness: 200, damping: 10 }}
+              className="absolute"
+            >
+              <Sun size={18} className="text-[#FFA700]" fill="currentColor" fillOpacity={0.2} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </button>
+  );
 
   return (
     <>
@@ -83,8 +133,10 @@ export default function Navbar({ onStartProject, onContact }) {
               ))}
             </div>
 
-            {/* CTA */}
+            {/* CTA & Theme */}
             <div className="hidden md:flex items-center gap-4">
+              <ThemeToggle />
+              
               <button
                 onClick={onStartProject}
                 className="group relative px-6 py-2.5 rounded-full font-bold text-sm overflow-hidden transition-all duration-500 text-white"
@@ -111,14 +163,17 @@ export default function Navbar({ onStartProject, onContact }) {
               </button>
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <button
-              className="md:hidden text-white p-2 rounded-full hover:bg-white/[0.05] transition-colors"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile Menu Toggle & Theme */}
+            <div className="flex md:hidden items-center gap-3">
+              <ThemeToggle />
+              <button
+                className="text-white p-2 rounded-full border border-white/[0.05] hover:bg-white/[0.05] transition-colors"
+                onClick={() => setMobileOpen(!mobileOpen)}
+                aria-label="Toggle menu"
+              >
+                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
