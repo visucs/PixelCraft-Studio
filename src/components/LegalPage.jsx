@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { ArrowLeft, Shield, FileText, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Shield, FileText, ChevronRight, Sparkles } from 'lucide-react';
+import { Agentation } from 'agentation';
 
 const privacySections = [
   {
@@ -228,173 +229,199 @@ export default function LegalPage({ defaultTab = 'privacy', onBack }) {
   }, [activeTab]);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Sticky Header */}
-      <header
-        className="sticky top-0 z-50 border-b border-white/[0.06]"
-        style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(20px)' }}
-      >
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Logo */}
-          <button
-            onClick={onBack}
-            className="flex items-center gap-2 cursor-pointer group"
-          >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0071E3] to-[#00C6FF] flex items-center justify-center">
-              <span className="text-white font-black text-sm">P</span>
-            </div>
-            <span className="text-white font-bold text-lg tracking-tight">PixelCraft Studio</span>
-          </button>
-
-          {/* Back button */}
-          <button
-            onClick={onBack}
-            className="flex items-center gap-2 text-sm text-[#86868B] hover:text-white transition-colors"
-          >
-            <ArrowLeft size={14} />
-            Back to Home
-          </button>
-        </div>
-      </header>
-
-      {/* Hero */}
-      <div className="max-w-5xl mx-auto px-6 pt-16 pb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0071E3]/10 border border-[#0071E3]/25 mb-6">
-          {activeTab === 'privacy'
-            ? <Shield size={12} className="text-[#0071E3]" />
-            : <FileText size={12} className="text-[#0071E3]" />
-          }
-          <span className="text-[#0071E3] text-xs font-semibold tracking-widest uppercase">
-            {activeTab === 'privacy' ? 'Privacy Policy' : 'Terms & Conditions'}
-          </span>
+    <>
+      {import.meta.env.DEV && <Agentation />}
+      <div className="min-h-screen bg-black text-white selection:bg-[#00C6FF]/30 selection:text-white relative overflow-hidden">
+        {/* Background Mesh */}
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[600px] bg-gradient-to-br from-[#00C6FF]/10 to-[#9B5DE5]/10 blur-[120px] rounded-full opacity-50" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[500px] bg-gradient-to-tl from-[#0071E3]/10 to-[#00C6FF]/10 blur-[120px] rounded-full opacity-40" />
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDAuNWg0ME0wIDM5LjVoNDBNMC41IDB2NDBNMzkuNSAwdjQwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] [mask-image:linear-gradient(to_bottom,white,transparent_80%)] opacity-40" />
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">
-          {activeTab === 'privacy' ? 'Your Privacy Matters.' : 'Terms & Conditions.'}
-        </h1>
-        <p className="text-[#86868B] text-lg max-w-2xl">
-          {activeTab === 'privacy'
-            ? 'We are committed to protecting your personal information and being transparent about how we use it.'
-            : 'By using PixelCraft Studio services, you agree to the following terms. Please read them carefully.'}
-        </p>
-        <p className="text-[#86868B]/60 text-sm mt-3">Last updated: June 2025</p>
-      </div>
-
-      {/* Tab Switcher */}
-      <div className="max-w-5xl mx-auto px-6 mb-12">
-        <div
-          className="inline-flex p-1 rounded-xl gap-1"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-        >
-          {[
-            { id: 'privacy', label: 'Privacy Policy', icon: Shield },
-            { id: 'terms', label: 'Terms & Conditions', icon: FileText },
-          ].map(({ id, label, icon: Icon }) => (
-            <button
-              key={id}
-              onClick={() => setActiveTab(id)}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200"
-              style={
-                activeTab === id
-                  ? { background: '#0071E3', color: '#fff' }
-                  : { color: 'rgba(255,255,255,0.5)', background: 'transparent' }
-              }
-            >
-              <Icon size={14} />
-              {label}
+        {/* Floating Glass Header */}
+        <header className="fixed top-0 inset-x-0 z-[100] flex justify-center px-4 pt-6">
+          <div 
+            className="relative w-full max-w-7xl flex items-center justify-between px-6 py-3 rounded-[2rem] transition-all duration-500 shadow-[0_20px_40px_rgba(0,0,0,0.5)] border border-white/[0.08]"
+            style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(24px)' }}
+          >
+            {/* Logo */}
+            <button onClick={onBack} className="group relative flex items-center gap-3 z-50">
+              <div className="relative w-10 h-10 rounded-2xl flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105 bg-white/[0.03] border border-white/[0.05]">
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#00C6FF]/20 to-[#9B5DE5]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="text-white font-black text-lg relative z-10 group-hover:text-[#00C6FF] transition-colors duration-300">P</span>
+              </div>
+              <span className="text-white font-black text-xl tracking-tight relative z-10 hidden sm:block">
+                Pixel<span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60 group-hover:from-[#00C6FF] group-hover:to-[#9B5DE5] transition-all duration-300">Craft</span>
+              </span>
             </button>
-          ))}
-        </div>
-      </div>
 
-      {/* Content */}
-      <div className="max-w-5xl mx-auto px-6 pb-24">
-        <div className="flex flex-col lg:flex-row gap-10">
+            {/* Back Button */}
+            <button
+              onClick={onBack}
+              className="group relative flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 hover:scale-105 active:scale-95 border border-white/[0.05] hover:border-[#00C6FF]/30 overflow-hidden"
+              style={{ background: 'rgba(255,255,255,0.03)' }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00C6FF]/10 to-[#9B5DE5]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <ArrowLeft size={16} className="text-white/60 group-hover:text-white group-hover:-translate-x-1 transition-all relative z-10" /> 
+              <span className="text-white/80 group-hover:text-white transition-colors relative z-10">Back to Home</span>
+            </button>
+          </div>
+        </header>
 
-          {/* Sidebar TOC */}
-          <aside className="lg:w-60 flex-shrink-0">
-            <div className="sticky top-24">
-              <p className="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-4">Contents</p>
-              <nav className="flex flex-col gap-1">
-                {sections.map((s, i) => (
-                  <a
-                    key={i}
-                    href={`#section-${i}`}
-                    className="flex items-center gap-2 text-xs text-[#86868B] hover:text-white transition-colors py-1.5 group"
-                  >
-                    <ChevronRight size={10} className="text-[#0071E3] opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {s.title}
-                  </a>
-                ))}
-              </nav>
+        {/* Main Layout */}
+        <div className="relative z-10 pt-40 pb-24">
+          
+          {/* Hero Header */}
+          <div className="max-w-4xl mx-auto px-6 text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 relative group cursor-default" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#00C6FF]/20 to-[#9B5DE5]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+              <div className="relative flex items-center gap-2">
+                <Sparkles size={12} className="text-[#00C6FF]" />
+                <span className="text-white/80 text-[11px] font-bold uppercase tracking-widest">
+                  Legal & Transparency
+                </span>
+              </div>
             </div>
-          </aside>
 
-          {/* Main Content */}
-          <main className="flex-1 min-w-0">
-            <div className="flex flex-col gap-10">
-              {sections.map((section, i) => (
-                <div
-                  key={i}
-                  id={`section-${i}`}
-                  className="rounded-2xl p-6 md:p-8"
-                  style={{
-                    background: 'rgba(255,255,255,0.02)',
-                    border: '1px solid rgba(255,255,255,0.06)',
-                  }}
+            <h1 className="text-5xl md:text-6xl lg:text-[5.5rem] font-black tracking-tighter text-white mb-6 leading-tight">
+              {activeTab === 'privacy' ? 'Your Privacy ' : 'Terms & '}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00C6FF] to-[#9B5DE5]">
+                {activeTab === 'privacy' ? 'Matters.' : 'Conditions.'}
+              </span>
+            </h1>
+            
+            <p className="text-[#86868B] text-lg md:text-xl max-w-2xl mx-auto font-medium">
+              {activeTab === 'privacy'
+                ? 'We are committed to protecting your personal information and being transparent about how we use it.'
+                : 'By using PixelCraft Studio services, you agree to the following terms. Please read them carefully.'}
+            </p>
+          </div>
+
+          {/* Tab Switcher */}
+          <div className="max-w-4xl mx-auto px-6 mb-16 flex justify-center">
+            <div
+              className="inline-flex p-1.5 rounded-2xl gap-1 shadow-[0_0_30px_rgba(0,0,0,0.5)]"
+              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', backdropFilter: 'blur(12px)' }}
+            >
+              {[
+                { id: 'privacy', label: 'Privacy Policy', icon: Shield },
+                { id: 'terms', label: 'Terms & Conditions', icon: FileText },
+              ].map(({ id, label, icon: Icon }) => (
+                <button
+                  key={id}
+                  onClick={() => setActiveTab(id)}
+                  className={`group relative flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 ${
+                    activeTab === id ? 'text-white shadow-lg' : 'text-white/50 hover:text-white hover:bg-white/[0.05]'
+                  }`}
                 >
-                  <h2 className="text-white text-xl font-bold tracking-tight mb-6 pb-4 border-b border-white/[0.06]">
-                    {section.title}
-                  </h2>
-                  <div className="flex flex-col gap-6">
-                    {section.content.map((item, j) => (
-                      <div key={j}>
-                        <h3 className="text-[#0071E3] text-sm font-bold mb-2 tracking-wide">
-                          {item.subtitle}
-                        </h3>
-                        <p className="text-[#86868B] text-sm leading-relaxed whitespace-pre-line">
-                          {item.text}
-                        </p>
+                  {activeTab === id && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#00C6FF] to-[#9B5DE5] rounded-xl opacity-90" />
+                  )}
+                  <Icon size={16} className="relative z-10" />
+                  <span className="relative z-10">{label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Content Area */}
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="flex flex-col lg:flex-row gap-12">
+              
+              {/* Sidebar TOC */}
+              <aside className="lg:w-72 flex-shrink-0 hidden lg:block">
+                <div className="sticky top-32 p-6 rounded-[2rem]" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <p className="text-[#00C6FF] text-[10px] font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#00C6FF]" /> Contents
+                  </p>
+                  <nav className="flex flex-col gap-2">
+                    {sections.map((s, i) => (
+                      <a
+                        key={i}
+                        href={`#section-${i}`}
+                        className="flex items-start gap-3 text-[13px] text-[#86868B] font-medium hover:text-white transition-all duration-200 py-2 px-3 rounded-lg hover:bg-white/[0.03] group"
+                      >
+                        <ChevronRight size={14} className="text-[#00C6FF] opacity-0 group-hover:opacity-100 transition-opacity mt-0.5" />
+                        <span className="-ml-4 group-hover:ml-0 transition-all duration-200">{s.title}</span>
+                      </a>
+                    ))}
+                  </nav>
+                </div>
+              </aside>
+
+              {/* Main Document Content */}
+              <main className="flex-1 min-w-0 flex flex-col gap-8">
+                <div className="bg-white/[0.02] border border-white/[0.05] rounded-[2rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-br from-[#00C6FF]/5 to-transparent rounded-full blur-[80px]" />
+                  
+                  <div className="text-white/40 text-xs font-bold uppercase tracking-widest mb-10 pb-4 border-b border-white/[0.05]">
+                    Last updated: June 2025
+                  </div>
+
+                  <div className="flex flex-col gap-12 relative z-10">
+                    {sections.map((section, i) => (
+                      <div key={i} id={`section-${i}`} className="scroll-mt-32">
+                        <h2 className="text-white text-2xl md:text-3xl font-black tracking-tight mb-8">
+                          {section.title}
+                        </h2>
+                        <div className="flex flex-col gap-8">
+                          {section.content.map((item, j) => (
+                            <div key={j} className="group relative pl-6 border-l-2 border-white/[0.08] hover:border-[#00C6FF] transition-colors duration-300">
+                              <h3 className="text-[#00C6FF] text-lg font-bold mb-3 tracking-tight">
+                                {item.subtitle}
+                              </h3>
+                              <p className="text-[#86868B] text-base leading-relaxed whitespace-pre-line group-hover:text-white/80 transition-colors duration-300">
+                                {item.text}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     ))}
                   </div>
                 </div>
-              ))}
-            </div>
 
-            {/* Bottom CTA */}
-            <div
-              className="mt-10 rounded-2xl p-8 text-center"
-              style={{
-                background: 'linear-gradient(135deg, rgba(0,113,227,0.08) 0%, rgba(0,0,0,0) 100%)',
-                border: '1px solid rgba(0,113,227,0.2)',
-              }}
-            >
-              <p className="text-white font-semibold mb-2">Questions about our policies?</p>
-              <p className="text-[#86868B] text-sm mb-5">
-                We're happy to explain anything. Reach out directly.
-              </p>
-              <a
-                href="mailto:hello@pixelcraftstudio.com"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:opacity-90"
-                style={{ background: '#0071E3', color: '#fff' }}
-              >
-                hello@pixelcraftstudio.com
-              </a>
+                {/* Bottom CTA */}
+                <div
+                  className="mt-6 rounded-[2rem] p-10 text-center relative overflow-hidden group"
+                  style={{
+                    background: 'rgba(255,255,255,0.02)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                  }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#00C6FF]/10 to-[#9B5DE5]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative z-10 max-w-lg mx-auto">
+                    <p className="text-white text-2xl font-bold mb-3 tracking-tight">Have questions?</p>
+                    <p className="text-[#86868B] text-base mb-8 font-medium">
+                      We value transparency. If anything in our {activeTab === 'privacy' ? 'Privacy Policy' : 'Terms & Conditions'} is unclear, reach out directly.
+                    </p>
+                    <a
+                      href="mailto:hello@pixelcraftstudio.com"
+                      className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(0,198,255,0.2)] hover:shadow-[0_0_30px_rgba(0,198,255,0.4)]"
+                      style={{ background: 'linear-gradient(135deg, #00C6FF, #0071E3)', color: '#fff' }}
+                    >
+                      hello@pixelcraftstudio.com
+                    </a>
+                  </div>
+                </div>
+              </main>
+
             </div>
-          </main>
+          </div>
         </div>
+
+        {/* Footer */}
+        <footer className="relative z-10 border-t border-white/[0.05] py-8 px-6 bg-black">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-[#86868B] text-sm font-medium">© 2025 PixelCraft Studio. All rights reserved.</p>
+            <p className="text-[#86868B] text-sm font-medium">
+              Crafted with <span className="text-[#00C6FF] animate-pulse">♥</span> by the PixelCraft team.
+            </p>
+          </div>
+        </footer>
       </div>
-
-      {/* Footer */}
-      <footer className="border-t border-white/[0.05] py-8 px-6">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[#86868B] text-sm">© 2025 PixelCraft Studio. All rights reserved.</p>
-          <p className="text-[#86868B] text-sm">
-            Crafted with <span className="text-[#0071E3]">♥</span> by the PixelCraft team.
-          </p>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 }
