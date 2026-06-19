@@ -3,7 +3,7 @@ import { ArrowRight, Play } from 'lucide-react';
 
 export default function Hero({ onStartProject }) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden pt-[120px] pb-12 sm:pt-20 sm:pb-0">
       {/* Animated Background Mesh */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[0%] left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-gradient-to-br from-[#0071E3]/20 via-[#9B5DE5]/10 to-[#00C6FF]/10 blur-[120px] rounded-full opacity-60 animate-pulse" style={{ animationDuration: '8s' }} />
@@ -19,7 +19,7 @@ export default function Hero({ onStartProject }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-10 relative group cursor-default" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', backdropFilter: 'blur(10px)' }}
+          className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-6 sm:mb-10 max-[400px]:mt-10 relative group cursor-default" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', backdropFilter: 'blur(10px)' }}
         >
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#0071E3]/20 to-[#00C6FF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
           <div className="relative flex items-center gap-2">
@@ -36,7 +36,7 @@ export default function Hero({ onStartProject }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl md:text-[5.5rem] lg:text-[7rem] font-black tracking-tighter leading-[1.05] mb-8"
+          className="text-[clamp(2.75rem,12vw,7rem)] font-black tracking-tighter leading-[1.05] mb-6 sm:mb-8"
         >
           We Build Websites <br className="hidden md:block" />
           <span
@@ -53,7 +53,7 @@ export default function Hero({ onStartProject }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35 }}
-          className="text-[#86868B] text-lg md:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed font-medium"
+          className="text-[#86868B] text-base sm:text-lg md:text-2xl max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed font-medium px-2 sm:px-0"
         >
           Premium web design & development for brands that refuse to be ordinary.
         </motion.p>
@@ -63,11 +63,11 @@ export default function Hero({ onStartProject }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full sm:w-auto px-4 sm:px-0"
         >
           <button
             onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group relative inline-flex items-center justify-center gap-2 px-10 py-4 rounded-2xl font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
+            className="group relative inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 rounded-2xl font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
           >
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#0071E3] to-[#00C6FF] transition-all duration-300" />
             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-[#0071E3] to-[#00C6FF]" />
@@ -78,7 +78,7 @@ export default function Hero({ onStartProject }) {
           
           <button
             onClick={() => onStartProject ? onStartProject() : document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group relative inline-flex items-center justify-center gap-2 px-10 py-4 rounded-2xl font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
+            className="group relative inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 rounded-2xl font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
           >
             <div className="absolute inset-0 rounded-2xl bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -91,7 +91,7 @@ export default function Hero({ onStartProject }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-[#86868B]"
+          className="mt-10 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10 text-[#86868B]"
         >
           <div className="flex items-center gap-3">
             <div className="flex -space-x-3">

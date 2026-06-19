@@ -10,7 +10,6 @@ const trustBadges = [
 
 export default function CTA({ onStartProject }) {
   const ref = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -67,7 +66,7 @@ export default function CTA({ onStartProject }) {
             </div>
           </div>
 
-          <h2 className="text-5xl md:text-7xl lg:text-[6rem] font-black tracking-tighter mb-8 leading-[1] relative">
+          <h2 className="text-[clamp(2.5rem,12vw,6rem)] font-black tracking-tighter mb-6 sm:mb-8 leading-[1.05] relative">
             Ready to Build
             <br className="hidden md:block" />
             <span className="relative inline-block mt-2 md:mt-2">
@@ -78,56 +77,44 @@ export default function CTA({ onStartProject }) {
             </span>
           </h2>
 
-          <p className="text-[#86868B] text-xl md:text-2xl max-w-2xl mx-auto mb-14 leading-relaxed font-medium">
+          <p className="text-[#86868B] text-base sm:text-xl md:text-2xl max-w-2xl mx-auto mb-10 sm:mb-14 leading-relaxed font-medium px-4 sm:px-0">
             Let's create an unforgettable digital experience that drives real results for your business.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 z-20 relative">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-[280px] sm:max-w-none mx-auto z-20 relative">
             <button
-              className="group relative px-8 py-5 rounded-full font-bold text-lg overflow-hidden transition-all duration-500"
+              className="group relative inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 rounded-2xl font-bold text-sm sm:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
               onClick={onStartProject}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              style={{
-                background: 'rgba(255,255,255,0.1)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                boxShadow: isHovered ? '0 0 40px rgba(0,198,255,0.4)' : '0 10px 30px rgba(0,0,0,0.5)',
-                transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-              }}
             >
-              {/* Button Background Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00C6FF] to-[#9B5DE5] opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0" />
-              
-              {/* Button Inner content */}
-              <div className="relative z-10 flex items-center gap-3 text-white">
-                Start Your Project
-                <div className="bg-white/20 p-1.5 rounded-full backdrop-blur-sm group-hover:translate-x-1 transition-transform duration-300">
-                  <ArrowRight size={18} strokeWidth={2.5} />
-                </div>
-              </div>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#00C6FF] to-[#9B5DE5] transition-all duration-300" />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-[#00C6FF] to-[#9B5DE5]" />
+              <span className="relative text-white flex items-center justify-center gap-2 font-semibold tracking-wide whitespace-nowrap w-full">
+                Start Your Project <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </span>
             </button>
             <button
-              className="text-[#86868B] text-base font-semibold hover:text-white transition-colors duration-300 flex items-center gap-2 group"
+              className="group relative inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 rounded-2xl font-bold text-sm sm:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
+              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
               onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              View Pricing 
-              <ArrowRight size={16} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+              <div className="absolute inset-0 rounded-2xl bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative text-white/80 group-hover:text-white transition-colors tracking-wide whitespace-nowrap">View Pricing</span>
             </button>
           </div>
 
           {/* Trust badges */}
-          <div className="mt-20 flex flex-wrap items-center justify-center gap-4 relative z-20">
+          <div className="mt-12 sm:mt-20 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 relative z-20">
             {trustBadges.map(({ icon: Icon, label, color }, i) => (
               <div
                 key={i}
-                className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/[0.05] bg-white/[0.02] backdrop-blur-md group hover:bg-white/[0.05] transition-all duration-300 hover:-translate-y-1"
-                style={{ boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}
+                className="flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/[0.05] bg-white/[0.02] backdrop-blur-md group hover:bg-white/[0.05] transition-all duration-300 hover:-translate-y-1"
+                style={{ boxShadow: '0 8px 16px rgba(0,0,0,0.15)' }}
               >
-                <div className="relative">
+                <div className="relative flex items-center justify-center">
                   <div className="absolute inset-0 blur-sm opacity-0 group-hover:opacity-50 transition-opacity duration-300" style={{ background: color }} />
-                  <Icon size={16} style={{ color: color }} className="relative z-10 drop-shadow-md" strokeWidth={2.5} />
+                  <Icon className="relative z-10 drop-shadow-md w-3.5 h-3.5 sm:w-4 sm:h-4" style={{ color: color }} strokeWidth={2.5} />
                 </div>
-                <span className="text-[#86868B] text-sm font-semibold tracking-wide group-hover:text-white transition-colors duration-300">
+                <span className="text-[#86868B] text-xs sm:text-sm font-semibold tracking-wide group-hover:text-white transition-colors duration-300 whitespace-nowrap">
                   {label}
                 </span>
               </div>
