@@ -124,7 +124,7 @@ export default function Pricing() {
             </div>
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-tight relative">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 leading-tight relative">
             Invest in your
             <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #fff 0%, #a0a0a0 100%)' }}> digital future.</span>
@@ -147,7 +147,7 @@ export default function Pricing() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           {plans.map((plan, i) => (
             <PricingCard key={i} plan={plan} delay={i * 0.1} />
           ))}
@@ -189,7 +189,7 @@ function PricingCard({ plan, delay }) {
   return (
     <div
       ref={ref}
-      className={`section-reveal relative p-8 md:p-10 flex flex-col rounded-[2.5rem] transition-all duration-500 ease-out`}
+      className={`section-reveal relative p-8 lg:p-10 flex flex-col rounded-[2.5rem] transition-all duration-500 ease-out`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{

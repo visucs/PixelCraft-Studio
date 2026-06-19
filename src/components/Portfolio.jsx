@@ -339,7 +339,7 @@ function ReviewsSection() {
         <div className="flex-1 h-px bg-gradient-to-l from-transparent via-white/[0.1] to-white/[0.1]" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {reviews.map((review, i) => (
           <ReviewCard key={i} review={review} delay={i * 0.1} />
         ))}

@@ -105,7 +105,7 @@ export default function Navbar({ onStartProject, onContact }) {
             </div>
 
             {/* Desktop Links */}
-            <div className="hidden md:flex items-center gap-1 relative">
+            <div className="hidden lg:flex items-center gap-1 relative">
               {links.map((link) => (
                 <button
                   key={link}
@@ -134,7 +134,7 @@ export default function Navbar({ onStartProject, onContact }) {
             </div>
 
             {/* CTA & Theme */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-4">
               <ThemeToggle />
               
               <button
@@ -164,7 +164,7 @@ export default function Navbar({ onStartProject, onContact }) {
             </div>
 
             {/* Mobile Menu Toggle & Theme */}
-            <div className="flex md:hidden items-center gap-3">
+            <div className="flex lg:hidden items-center gap-3">
               <ThemeToggle />
               <button
                 className="text-white p-2 rounded-full border border-white/[0.05] hover:bg-white/[0.05] transition-colors"
